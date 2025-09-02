@@ -9,3 +9,16 @@ spring:
       dev: dev
       prod: prod
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    defaults:
+      enabled: true
+    redis:
+      enabled: false  # Redis 헬스체크만 비활성화
