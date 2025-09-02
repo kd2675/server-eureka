@@ -1,6 +1,11 @@
 server:
   port: 28761
 
+spring:
+  config:
+    activate:
+      on-profile: dev
+
 eureka:
   instance:
     hostname: kimd0.iptime.org

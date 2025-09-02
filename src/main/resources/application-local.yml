@@ -1,6 +1,11 @@
 server:
   port: 28761
 
+spring:
+  config:
+    activate:
+      on-profile: local
+
 eureka:
   instance:
     hostname: localhost
