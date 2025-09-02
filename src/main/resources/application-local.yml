@@ -1,0 +1,13 @@
+server:
+  port: 28761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false    #  자기 자신은 등록하지 않음
+    fetch-registry: false          #  다른 인스턴스 정보 가져오지 않음
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false  #  개발환경용 (운영에서는 true)
