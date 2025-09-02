@@ -1,5 +1,5 @@
 server:
-  port: 38761
+  port: 30210
 
 spring:
   config:
