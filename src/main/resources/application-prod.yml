@@ -9,10 +9,30 @@ spring:
 eureka:
   instance:
     hostname: kimd0.iptime.org
+
+    prefer-ip-address: false
+    ip-address: ${eureka.instance.hostname}
   client:
-    register-with-eureka: false    #  자기 자신은 등록하지 않음
-    fetch-registry: false          #  다른 인스턴스 정보 가져오지 않음
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
-    enable-self-preservation: true  #  개발환경용 (운영에서는 true)
+    # ✅ Self-Preservation 모드 고급 설정
+    enable-self-preservation: true
+    renewal-percent-threshold: 0.85  # 85% 이하로 renewal이 떨어지면 활성화
+    renewal-threshold-update-interval-ms: 15000  # 15초마다 threshold 재계산
+    expected-client-renewal-interval-seconds: 30  # 클라이언트 renewal 예상 간격
+
+    # ✅ 네트워크 파티션 대응
+    delta-retention-timer-interval-in-ms: 30000  # 30초
+    retention-time-in-m-s-in-delta-queue: 180000  # 3분간 delta 정보 보관
+
+    # ✅ 클라이언트 응답성 최적화
+    response-cache-auto-expiration-in-seconds: 180  # 3분 캐시
+    response-cache-update-interval-ms: 30000  # 30초마다 캐시 업데이트
+
+    # ✅ 배치 처리 최적화
+    batch-replication: true  # 배치로 복제 처리
+    max-elements-in-peer-replication-pool: 10000
+    max-elements-in-status-replication-pool: 10000
