@@ -18,6 +18,8 @@ dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-actuator"
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
 
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
 	// 모니터링을 위한 의존성 추가
 	implementation 'io.micrometer:micrometer-registry-prometheus'
 	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
