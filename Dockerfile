@@ -6,7 +6,7 @@ COPY build.gradle settings.gradle /build/
 COPY common-core/build.gradle /build/common-core/
 COPY common-database/build.gradle /build/common-database/
 COPY common-log/build.gradle /build/common-log/
-COPY server-cloud/build.gradle /build/server-eureka/
+COPY server-eureka/build.gradle /build/server-eureka/
 RUN gradle :server-eureka:dependencies --no-daemon
 
 # 🎯 필요한 소스만 복사 (전체 대신)
