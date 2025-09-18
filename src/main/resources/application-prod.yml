@@ -1,10 +1,8 @@
 spring:
   config:
-    import: "configserver:http://server-config:10220"
+    import: "configserver:http://server-config-10220:10220"
   cloud:
     config:
-      uri: http://server-config:10220
-      profile: prod
       fail-fast: true
       retry:
         initial-interval: 1000
