@@ -22,8 +22,6 @@ dependencies {
 
 	// 모니터링을 위한 의존성 추가
 	implementation 'io.micrometer:micrometer-registry-prometheus'
-	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
-	implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
 
 	// 장애 대응을 위한 의존성
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
