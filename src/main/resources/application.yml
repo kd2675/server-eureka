@@ -17,8 +17,28 @@ management:
   endpoint:
     health:
       show-details: always
+      show-components: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true  # ✅ 이렇게 endpoint 레벨에서 활성화
   health:
     defaults:
       enabled: true
     redis:
       enabled: false  # Redis 헬스체크만 비활성화
+  observations:
+    key-values:
+      service: eureka-server
+      environment: ${spring.profiles.active}
+  metrics:
+    tags:
+      service: eureka-server
+      environment: ${spring.profiles.active}
+    distribution:
+      percentiles-histogram:
+        eureka.server: true
+        http.server.requests: true
+      percentiles:
+        eureka.server: 0.5, 0.75, 0.95, 0.99
+        http.server.requests: 0.5, 0.75, 0.95, 0.99
