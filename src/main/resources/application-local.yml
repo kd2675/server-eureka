@@ -5,6 +5,9 @@ spring:
   config:
     activate:
       on-profile: local
+  cloud:
+    config:
+      enabled: false
 
 eureka:
   instance:

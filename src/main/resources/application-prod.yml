@@ -3,7 +3,7 @@ spring:
     import: "configserver:http://server-config:10220"
   cloud:
     config:
-      uri: http://server-config:8888
+      uri: http://server-config:10220
       profile: prod
       fail-fast: true
       retry:
