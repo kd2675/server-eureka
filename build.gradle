@@ -13,12 +13,18 @@ ext {
 	set('springCloudVersion', "2023.0.2")
 }
 
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation "org.springframework.boot:spring-boot-starter-actuator"
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
 
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	implementation "org.springframework.boot:spring-boot-starter-actuator"
 
 	// 모니터링을 위한 의존성 추가
 	implementation 'io.micrometer:micrometer-registry-prometheus'
@@ -32,12 +38,6 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-	}
 }
 
 test {

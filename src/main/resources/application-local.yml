@@ -18,4 +18,4 @@ eureka:
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
-    enable-self-preservation: true  #  개발환경용 (운영에서는 true)
+    enable-self-preservation: false  #  개발환경용 (운영에서는 true)
