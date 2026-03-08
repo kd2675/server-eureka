@@ -18,7 +18,7 @@ COPY server-eureka/ /build/server-eureka/
 # 빌드 (기존과 동일)
 RUN gradle :server-eureka:clean :server-eureka:build --no-daemon --parallel
 
-FROM openjdk:17-slim
+FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 
 RUN apt-get update
